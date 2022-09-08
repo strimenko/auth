@@ -1,4 +1,4 @@
-module restApi
+module github.com/strimenko/Auth
 
 go 1.18
 
