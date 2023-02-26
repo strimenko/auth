@@ -1,14 +1,13 @@
 package repository
 
 import (
-	rest "restApi"
-
 	"github.com/jmoiron/sqlx"
+	"github.com/strimenko/auth"
 )
 
 type Authorization interface {
-	CreateUser(user rest.User) (int, error)
-	GetUser(username, password string) (rest.User, error)
+	CreateUser(user auth.User) (int, error)
+	GetUser(username, password string) (auth.User, error)
 }
 
 type Repository struct {

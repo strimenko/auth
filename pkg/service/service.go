@@ -1,12 +1,12 @@
 package service
 
 import (
-	rest "restApi"
-	"restApi/pkg/repository"
+	"github.com/strimenko/auth"
+	"github.com/strimenko/auth/pkg/repository"
 )
 
 type Authorization interface {
-	CreateUser(user rest.User) (int, error)
+	CreateUser(user auth.User) (int, error)
 	GenerateToken(username, password string) (string, error)
 	ParseToken(token string) (int, error)
 }

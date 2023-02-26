@@ -1,4 +1,4 @@
-module github.com/strimenko/Auth
+module github.com/strimenko/auth
 
 go 1.18
 

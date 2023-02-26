@@ -2,13 +2,13 @@ package handler
 
 import (
 	"net/http"
-	rest "restApi"
 
 	"github.com/gin-gonic/gin"
+	"github.com/strimenko/auth"
 )
 
 func (h *Handler) signUp(c *gin.Context) {
-	var input rest.User
+	var input auth.User
 
 	if err := c.BindJSON(&input); err != nil {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())

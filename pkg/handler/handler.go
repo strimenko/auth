@@ -1,9 +1,8 @@
 package handler
 
 import (
-	"restApi/pkg/service"
-
 	"github.com/gin-gonic/gin"
+	"github.com/strimenko/auth/pkg/service"
 )
 
 type Handler struct {

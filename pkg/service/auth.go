@@ -4,11 +4,11 @@ import (
 	"crypto/sha1"
 	"errors"
 	"fmt"
-	rest "restApi"
-	"restApi/pkg/repository"
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
+	"github.com/strimenko/auth"
+	"github.com/strimenko/auth/pkg/repository"
 )
 
 const (
@@ -30,7 +30,7 @@ func NewAuthService(repo repository.Authorization) *AuthService {
 	return &AuthService{repo: repo}
 }
 
-func (s *AuthService) CreateUser(user rest.User) (int, error) {
+func (s *AuthService) CreateUser(user auth.User) (int, error) {
 	user.Password = generatePasswordHash(user.Password)
 	return s.repo.CreateUser(user)
 }

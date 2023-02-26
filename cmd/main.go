@@ -2,14 +2,14 @@ package main
 
 import (
 	"os"
-	rest "restApi"
-	"restApi/pkg/handler"
-	"restApi/pkg/repository"
-	"restApi/pkg/service"
 
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"github.com/sirupsen/logrus"
+	"github.com/strimenko/auth"
+	"github.com/strimenko/auth/pkg/handler"
+	"github.com/strimenko/auth/pkg/repository"
+	"github.com/strimenko/auth/pkg/service"
 
 	"github.com/spf13/viper"
 )
@@ -40,7 +40,7 @@ func main() {
 	services := service.NewService(repos)
 	handlers := handler.NewHandler(services)
 
-	srv := new(rest.Server)
+	srv := new(auth.Server)
 	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
 		logrus.Fatal("error occured while running http server: %s", err.Error())
 	}
